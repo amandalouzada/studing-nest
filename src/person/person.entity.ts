@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
-export class Person {
+@Entity('person')
+export class PersonEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -16,4 +16,10 @@ export class Person {
 
     @Column({ enum: ['pf', 'pj'], nullable: false })
     type: string;
+
+    @CreateDateColumn()
+    createdAt: string
+  
+    @UpdateDateColumn()
+    updatedAt: string
 }
